@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="BDAP" ng-controller="PMTController as list">
+<body style="background-color:#F0F0F0  ;">
+</body>
   <head>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="application.css" />
@@ -9,12 +11,12 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-animate.js"></script>
     <script type="text/javascript" src="angularjs-1.2-animate-app.js"></script>
-    <!--<script src="http://code.angularjs.org/1.1.5/angular.js"></script>-->
+    
     <script type="text/javascript" src="controllers.js"></script>
     <script type="text/javascript" src="htpps://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular-animate.min.js"></script>
     <script src="js/animations.js"></script>
   </head>
-    <nav class="navbar navbar-inverse navbar-top" role="navigation">
+    <nav class="navbar navbar-inverse navbar-default" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -27,7 +29,7 @@
         </div>
 
         <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav navbar-left"> 
+          <ul class="nav navbar-nav navbar-left">
             <li><a href="Calendar/index.html">Calendar</a></li>
             <li><a href="#">Project Selection List</a></li>
             <li><a href="#contact" data-toggle="modal" data-target="#myModal" ng-click="list.addHours()">Project Cart</a></li>
@@ -82,7 +84,8 @@
                 <div class = "col-md-4">
                   <p>Iteration Points: {{pmt.IterationPts}}</p>
                   <p>Average Time: {{pmt.AvgTime}}<p>
-                  <button class="btn btn-success btn-large" ng-click="list.addItem(pmt.PMT, pmt.Category, pmt.AvgTime)">Add</button>
+                  
+                  <a href="#" class="btn btn-info btn-large"ng-click="list.addItem(pmt.PMT, pmt.Category, pmt.AvgTime)">Add</a>
                 </div>
               </div>
             </li>
