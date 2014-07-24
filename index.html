@@ -23,14 +23,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#home">Big Data Agile Porfolio</a>
+          <a class="navbar-brand" href="#home">BDAP: <em>Big Data Agile Porfolio</em></a>
         </div>
 
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav navbar-left"> 
-            <li><a href="#home">BDAP</a></li>
-            <li><a href="#">PMT List Selection</a></li>
-            <li><a href="#contact" data-toggle="modal" data-target="#myModal" ng-click="this.addHours()">Shopping Cart</a></li>
+            <li><a href="Calendar/index.html">Calendar</a></li>
+            <li><a href="#">Project Selection List</a></li>
+            <li><a href="#contact" data-toggle="modal" data-target="#myModal" ng-click="list.addHours()">Project Cart</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container -->
@@ -63,7 +63,7 @@
         <br> 
         Sort by:
         <select ng-model="orderProp">
-          <option value="PMT">PMT</option>
+          <option value="PMT">Project ID</option>
           <option value="Category">Technology</option>
           <option value="IterationPts">Iteration Points</option> 
           <option value="AvgTime">Average Time</option>
@@ -76,7 +76,7 @@
             <li ng-repeat="pmt in list.pmt | filter:query | sort:category | orderBy:orderProp" class="thumbnail phone-listing">
               <div class = "row-fluid">
                 <div class = "col-md-6">
-                  <p>PMT: {{pmt.PMT}}</p>
+                  <p>Project ID/PMT: {{pmt.PMT}}</p>
                   <p>Category: {{pmt.Category}}<p>
                 </div>
                 <div class = "col-md-4">
@@ -100,7 +100,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Current PMT's</h4>
+        <h4 class="modal-title" id="myModalLabel">Current Projects</h4>
       </div>
       <div class="modal-body">
         <li ng-repeat="pmt in list.list"  class="thumbnail phone-listing" >
@@ -110,7 +110,7 @@
             </li>
       </div>
       <div class="modal-footer">
-      Total Hours = {{pmt.Hours}}
+      Total Hours = {{list.lol}} &nbsp 
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
