@@ -1,0 +1,32 @@
+.ng-invalid.ng-dirty {
+  border-color: red;
+}
+
+.ng-valid.ng-dirty {
+  border-color: green;
+}
+
+.nav-tabs > li, .nav-pills > li {
+    float:none;
+    display:inline-block;
+    *display:inline; /* ie7 fix */
+     zoom:1; /* hasLayout ie7 trigger */
+}
+ 
+.nav-tabs {
+    text-align:center;
+}
+
+#crazy {
+    padding: 0;
+    list-style-type: none;
+}
+
+
+#background {
+  background-image: -webkit-radial-gradient(center, ellipse farthest-corner, #C4EBF2 0%, #3F525E 100%);
+}
+
+#background2{
+  background-image: -webkit-radial-gradient(center, ellipse farthest-corner, #D9FBFF 0%, #A2D2F2 100%);
+}

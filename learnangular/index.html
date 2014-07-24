@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="gemStore" id="background">
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="application.css" />
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+    <title>Practice Web-App using angular and bootstrap</title>
+
+  </head>
+
+  <body ng-controller="StoreController as store">
+    <navbar></navbar>
+
+    <!--  Store Header  -->
+    <header class="list-group col-md-6 col-md-offset-3">
+      <h1 class="text-center">Trying to Web-app</h1>
+      <h2 class="text-center"> -an item store-</h2>
+    </header>
+
+    <!--  Products Container  -->
+    <div class="list-group col-md-6 col-md-offset-3">
+          Search: <input ng-model="query">
+          Sort by:
+          <select ng-model="orderProp">
+            <option value="name">Alphabetical</option>
+            <option value="rarity">Rarity </option>
+            <option value="price">Price </option>
+            <option value="shine">Shine</option>
+            <option value="Fire">Fire</option>
+
+          </select>
+      <!--  Product Container  -->
+      <div class="list-group-item" ng-repeat="product in store.products  | filter:query | orderBy:orderProp" align="center">
+        <h3>{{product.name}} <em>{{product.price | currency}}</em></h3>
+
+        <!-- Image Gallery  -->
+        <div ng-controller="GalleryController as gallery"  ng-show="product.images.length">
+          <div class="img-wrap">
+            <img ng-src="{{product.images[gallery.current]}}" />
+          </div>
+          <br>
+        </div>
+
+        <!-- Product Tabs  -->
+        <itemtab>
+
+        <itemtab>
+      </div>
+
+    </div>
+  </body>
+</html>

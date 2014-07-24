@@ -1,0 +1,48 @@
+.thumb {
+  float: left;
+  margin: -0.5em 1em 1.5em 0;
+  padding-bottom: 1em;
+  height: 100px;
+  width: 100px;
+}
+
+.phones li {
+  clear: both;
+  height: 115px;
+  padding-top: 15px;
+}
+
+ 
+.phone-enter,
+.phone-leave,
+.phone-move {
+  -webkit-transition: 0.5s linear all;
+  -moz-transition: 0.5s linear all;
+  -o-transition: 0.5s linear all;
+  transition: 0.5s linear all;
+}
+
+.phone-enter,
+.phone-move {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.phone-move.phone-move-active,
+.phone-enter.phone-enter-active {
+  opacity: 1;
+  height: 120px;
+}
+
+.phone-leave {
+  opacity: 1;
+  overflow: hidden;
+}
+
+.phone-leave.phone-leave-active {
+  opacity: 0;
+  height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
