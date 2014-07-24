@@ -36,18 +36,26 @@
       </div><!-- /.container -->
     </nav>
   <br>
-  <body ng-controller="PMTController as phone">
+  <body ng-controller="PMTController as list">
 
     <div class="container-fluid">
       <div class="row">
       <div class="col-md-2 col-md-offset-1">
         Search: <input ng-model="query" >
         <br>
+        <br>
+        See Only:
+        <select ng-model="category" ng-init="All">
+          <option value="All">All</option>
+          <option value="Fire">Fire</option>
+          <option value="Water">Water</option>
+        </select>
+        <br>
         <br> 
         Sort by:
         <select ng-model="orderProp">
-          <option value="name">Alphabetical</option>
-          <option value="type">Type</option>
+          <option value="name">Fire</option>
+          <option value="type">Water</option>
           <option value="rank">Rank</option> 
         </select>
       </div>
@@ -55,7 +63,7 @@
           <!--Body content-->
 
           <ul class="phones"> 
-            <li ng-repeat="pmt in phone.pmt | filter:query | orderBy:orderProp" class="thumbnail phone-listing" >
+            <li ng-repeat="pmt in list.pmt | filter:query | sort:category | orderBy:orderProp" class="thumbnail phone-listing" >
             <a href="{{pmt.wiki}}" class="thumb"><img ng-src="{{pmt.imageUrl}}"></a>
              <a href="{{pmt.wiki}}">{{pmt.name}}</a>
               <p>Rank {{pmt.rank}}</p>
