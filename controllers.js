@@ -2,7 +2,16 @@
 
   app.controller('PMTController', function(){
     this.pmt = pmtList;
+    this.customFilter = function(data){
+      if (data.type === Fire) {
+        return true;
+      } else {
+        return false;
+      }
+    }
   });
+
+
 
 
   var pmtList = [
