@@ -23,13 +23,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">Big Data Agile Porfolio</a>
+          <a class="navbar-brand" href="#home">Big Data Agile Porfolio</a>
         </div>
 
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav navbar-left"> 
             <li><a href="#home">BDAP</a></li>
-            <li><a href="learnangular/index.html">PMT List Selection</a></li>
+            <li><a href="#">PMT List Selection</a></li>
             <li><a href="#contact">Shopping Cart</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -47,7 +47,7 @@
           <select ng-model="orderProp">
             <option value="name">Alphabetical</option>
             <option value="type">Type</option>
-            <option value="rank">Rank</option>
+            <option value="rank">Rank</option> 
           </select>
 
         </div>
@@ -55,11 +55,11 @@
           <!--Body content-->
 
           <ul class="phones"> 
-            <li ng-repeat="product in phone.pmt | filter:query | orderBy:orderProp" class="thumbnail phone-listing" >
-            <a href="{{product.wiki}}" class="thumb"><img ng-src="{{product.imageUrl}}"></a>
-             <a href="{{product.wiki}}">{{product.name}}</a>
-              <p>Rank {{product.rank}}</p>
-              <p>Type {{product.type}}<p>
+            <li ng-repeat="pmt in phone.pmt | filter:query | orderBy:orderProp" class="thumbnail phone-listing" >
+            <a href="{{pmt.wiki}}" class="thumb"><img ng-src="{{pmt.imageUrl}}"></a>
+             <a href="{{pmt.wiki}}">{{pmt.name}}</a>
+              <p>Rank {{pmt.rank}}</p>
+              <p>Type {{pmt.type}}<p>
             </li>
           </ul>
 
