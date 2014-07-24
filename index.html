@@ -45,7 +45,7 @@
         <br>
         <br>
         See Only:
-        <select ng-model="category" ng-init="All">
+        <select ng-model="category" ng-init="category='All'">
           <option value="All">All</option>
           <option value="Fire">Fire</option>
           <option value="Water">Water</option>
@@ -59,15 +59,24 @@
           <option value="rank">Rank</option> 
         </select>
       </div>
-        <div class="col-md-4">
+        <div class="col-md-8">
           <!--Body content-->
 
           <ul class="phones"> 
             <li ng-repeat="pmt in list.pmt | filter:query | sort:category | orderBy:orderProp" class="thumbnail phone-listing" >
-            <a href="{{pmt.wiki}}" class="thumb"><img ng-src="{{pmt.imageUrl}}"></a>
-             <a href="{{pmt.wiki}}">{{pmt.name}}</a>
-              <p>Rank {{pmt.rank}}</p>
-              <p>Type {{pmt.type}}<p>
+              <div class = "row-fluid">
+                <div class = "col-md-6">
+                  <a href="{{pmt.wiki}}" class="thumb"><img ng-src="{{pmt.imageUrl}}"></a>
+                  <a href="{{pmt.wiki}}">{{pmt.name}}</a>
+                  <p>Rank {{pmt.rank}}</p>
+                  <p>Type {{pmt.type}}<p>
+                </div>
+                <div class = "col-md-4">
+                  <p>PMT: PMT</p>
+                  <p>Average: {{pmt.type}}<p>
+                  <button class="btn btn-success btn-large" ng-Click>Add</button>
+                </div>
+              </div>
             </li>
           </ul>
 
@@ -76,4 +85,31 @@
 
     </div>
 
-  <body>
+    <!-- Button trigger modal -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" ng-click="add()">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Current PMT's</h4>
+      </div>
+      <div class="modal-body">
+        <li ng-repeat="pmt in list.list"  class="thumbnail phone-listing" >
+              <div class = "row-fluid">
+                {{pmt.pmt}}
+              </div>
+            </li>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<body>

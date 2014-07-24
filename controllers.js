@@ -2,6 +2,14 @@
 
   app.controller('PMTController', function(){
     this.pmt = pmtList;
+    this.list = addedList;
+    this.add = function(){
+      this.list.push({pmt: '8512305'});
+    }
+  });
+
+  app.controller('modal', function(){
+
   });
 
   app.filter('sort', function () {
@@ -14,7 +22,7 @@
       for (var i = 0; i < items.length; i++) {
         var item = items[i];
         // check if the individual Array element begins with `a` or not
-        if (item.type === element || element==="All") {
+        if (item.type === element || element==="All" ) {
           // push it into the Array if it does!
           filtered.push(item);
         }
@@ -25,6 +33,8 @@
   });
 
 
+
+
   var pmtList = [
     { name: 'Holy Dragon', rank: 'A',  type:'Fire', imageUrl:"http://img2.wikia.nocookie.net/__cb20131222134656/quiz-rpg-the-world-of-mystic-wiz/images/6/61/Holy_Dragon_Icon.png", wiki:"http://quiz-rpg-the-world-of-mystic-wiz.wikia.com/wiki/Holy_Dragon" },
     { name: 'White Flame Holy Dragon', rank: 'A-',  type:"Fire", imageUrl:"http://img1.wikia.nocookie.net/__cb20131222134724/quiz-rpg-the-world-of-mystic-wiz/images/thumb/3/33/White_Flame_Holy_Dragon_Icon.png/100px-White_Flame_Holy_Dragon_Icon.webp", wiki:"http://quiz-rpg-the-world-of-mystic-wiz.wikia.com/wiki/White_Flame_Holy_Dragon"},
@@ -32,3 +42,7 @@
     { name: 'Riel', rank: 'A', type:'Water', imageUrl:"http://img2.wikia.nocookie.net/__cb20140106070142/quiz-rpg-the-world-of-mystic-wiz/images/thumb/9/9e/Riel_%28Aqua_Pistol%29_Icon.png/100px-Riel_%28Aqua_Pistol%29_Icon.webp", wiki:"http://quiz-rpg-the-world-of-mystic-wiz.wikia.com/wiki/Riel_(Aqua_Pistol)" },
 
   ];  
+
+  var addedList = [
+    {pmt: '85105'}
+  ];
