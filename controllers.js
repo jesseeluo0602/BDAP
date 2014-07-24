@@ -4,8 +4,8 @@
     this.pmt = pmtList;
     this.list = addedList;
     this.cool=0;
-    this.addItem = function(pmtnumber, tech){
-      this.list.push({pmt: pmtnumber, category: tech})
+    this.addItem = function(pmtnumber, tech, time){
+      this.list.push({pmt: pmtnumber, Category: tech, Hours:time})
     }
   });
 
@@ -56,6 +56,6 @@ var pmtList = [
   ];  
 
   var addedList = [
-    {pmt: '85105', Category: "Web Development"},
-    {pmt: '23535', Category: "U2L"}
+    {pmt: '85105', Category: "Web Development", Hours:"4"},
+    {pmt: '23535', Category: "U2L", Hours:"6"}
   ];

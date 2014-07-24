@@ -47,12 +47,12 @@
         See Only:
         <select ng-model="category" ng-init="category='All'">
           <option value="All">All</option>
-          <option value="Web Development">Fire</option>
-          <option value="Mobile Application Development">Mobile Application Development</option>
+          <option value="Web Development">Web Development</option>
+          <option value="Mobile Applications Development">Mobile Application Development</option>
           <option value="Performance Testing">Performance Testing</option>
           <option value="Web Design">Web Design</option>
           <option value="Leadership Training">Leadership Training</option>
-          <option value="Mobile Application Design">Mobile Application Design</option>
+          <option value="Mobile Applications Design">Mobile Application Design</option>
           <option value="U2L">U2L</option>
           <option value="Server Maintenance">Server Maintenance</option>
           <option value="Cloud Computing">Cloud Computing</option>
@@ -82,7 +82,7 @@
                 <div class = "col-md-4">
                   <p>Iteration Points: {{pmt.IterationPts}}</p>
                   <p>Average Time: {{pmt.AvgTime}}<p>
-                  <button class="btn btn-success btn-large" ng-click="list.addItem(pmt.PMT, pmt.Category)">Add</button>
+                  <button class="btn btn-success btn-large" ng-click="list.addItem(pmt.PMT, pmt.Category, pmt.AvgTime)">Add</button>
                 </div>
               </div>
             </li>
@@ -105,7 +105,7 @@
       <div class="modal-body">
         <li ng-repeat="pmt in list.list"  class="thumbnail phone-listing" >
               <div class = "row-fluid">
-                {{pmt.pmt}} &nbsp &nbsp &#8212 &nbsp &nbsp   {{pmt.Category}} 
+                {{pmt.pmt}} &nbsp &nbsp &#8212 &nbsp &nbsp   {{pmt.Category}}   &nbsp &nbsp   &#8212   &nbsp &nbsp  Average Time {{pmt.Hours}}
               </div>
             </li>
       </div>
