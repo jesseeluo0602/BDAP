@@ -6,6 +6,14 @@
     this.cool=0;
     this.addItem = function(pmtnumber, tech, time){
       this.list.push({pmt: pmtnumber, Category: tech, Hours:time})
+    }; 
+    this.addHours = function(){
+      var sum = 0;
+      for (var i = 0; i < this.list.length; i++){
+        sum = sum +this.list[i].Hours ;
+      }
+      console.log(sum);
+      this.cool=sum;
     }
   });
 
@@ -56,6 +64,6 @@ var pmtList = [
   ];  
 
   var addedList = [
-    {pmt: '85105', Category: "Web Development", Hours:"4"},
-    {pmt: '23535', Category: "U2L", Hours:"6"}
+    {pmt: '85105', Category: "Web Development", Hours:4},
+    {pmt: '23535', Category: "U2L", Hours:6}
   ];
