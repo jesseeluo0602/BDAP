@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="BDAP">
+<html ng-app="BDAP" ng-controller="PMTController as list">
   <head>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="application.css" />
@@ -30,51 +30,59 @@
           <ul class="nav navbar-nav navbar-left"> 
             <li><a href="#home">BDAP</a></li>
             <li><a href="#">PMT List Selection</a></li>
-            <li><a href="#contact">Shopping Cart</a></li>
+            <li><a href="#contact" data-toggle="modal" data-target="#myModal">Shopping Cart</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container -->
     </nav>
   <br>
-  <body ng-controller="PMTController as list">
+  <body>
 
     <div class="container-fluid">
       <div class="row">
       <div class="col-md-2 col-md-offset-1">
-        Search: <input ng-model="query" >
+        Search: <input ng-model="query">
         <br>
         <br>
         See Only:
         <select ng-model="category" ng-init="category='All'">
           <option value="All">All</option>
-          <option value="Fire">Fire</option>
-          <option value="Water">Water</option>
+          <option value="Web Development">Fire</option>
+          <option value="Mobile Application Development">Mobile Application Development</option>
+          <option value="Performance Testing">Performance Testing</option>
+          <option value="Web Design">Web Design</option>
+          <option value="Leadership Training">Leadership Training</option>
+          <option value="Mobile Application Design">Mobile Application Design</option>
+          <option value="U2L">U2L</option>
+          <option value="Server Maintenance">Server Maintenance</option>
+          <option value="Cloud Computing">Cloud Computing</option>
+          <option value="Big Data Initiative">Big Data Initiative</option>
+
         </select>
         <br>
         <br> 
         Sort by:
         <select ng-model="orderProp">
-          <option value="name">Fire</option>
-          <option value="type">Water</option>
-          <option value="rank">Rank</option> 
+          <option value="PMT">PMT</option>
+          <option value="Category">Technology</option>
+          <option value="IterationPts">Iteration Points</option> 
+          <option value="AvgTime">Average Time</option>
         </select>
       </div>
         <div class="col-md-8">
           <!--Body content-->
 
           <ul class="phones"> 
-            <li ng-repeat="pmt in list.pmt | filter:query | sort:category | orderBy:orderProp" class="thumbnail phone-listing" >
+            <li ng-repeat="pmt in list.pmt | filter:query | sort:category | orderBy:orderProp" class="thumbnail phone-listing">
               <div class = "row-fluid">
                 <div class = "col-md-6">
-                  <a href="{{pmt.wiki}}" class="thumb"><img ng-src="{{pmt.imageUrl}}"></a>
-                  <a href="{{pmt.wiki}}">{{pmt.name}}</a>
-                  <p>Rank {{pmt.rank}}</p>
-                  <p>Type {{pmt.type}}<p>
+                  <p>PMT: {{pmt.PMT}}</p>
+                  <p>Category: {{pmt.Category}}<p>
                 </div>
                 <div class = "col-md-4">
-                  <p>PMT: PMT</p>
-                  <p>Average: {{pmt.type}}<p>
-                  <button class="btn btn-success btn-large" ng-Click>Add</button>
+                  <p>Iteration Points: {{pmt.IterationPts}}</p>
+                  <p>Average Time: {{pmt.AvgTime}}<p>
+                  <button class="btn btn-success btn-large" ng-click="list.addItem(pmt.PMT, pmt.Category)">Add</button>
                 </div>
               </div>
             </li>
@@ -85,10 +93,6 @@
 
     </div>
 
-    <!-- Button trigger modal -->
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" ng-click="add()">
-  Launch demo modal
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -101,7 +105,7 @@
       <div class="modal-body">
         <li ng-repeat="pmt in list.list"  class="thumbnail phone-listing" >
               <div class = "row-fluid">
-                {{pmt.pmt}}
+                {{pmt.pmt}} &nbsp &nbsp &#8212 &nbsp &nbsp   {{pmt.Category}} 
               </div>
             </li>
       </div>
@@ -113,3 +117,5 @@
 </div>
 
 <body>
+
+
