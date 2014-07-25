@@ -117,3 +117,7 @@
     background-color: #ffffff;
   }
 }
+
+html, body {
+  min-width: 1200px;
+} 

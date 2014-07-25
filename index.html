@@ -42,7 +42,7 @@
 
     <div class="container-fluid">
       <div class="row">
-      <div class="col-md-2 col-md-offset-1">
+      <div class="col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-0 col-xs-2">
         Search: <input ng-model="query">
         <br>
         <br>
@@ -71,17 +71,17 @@
           <option value="AvgTime">Average Time</option>
         </select>
       </div>
-        <div class="col-md-8">
+        <div class="col-md-7 col-sm-6 col-xs-4">
           <!--Body content-->
 
           <ul class="phones"> 
             <li ng-repeat="pmt in list.pmt | filter:query | sort:category | orderBy:orderProp" class="thumbnail phone-listing">
               <div class = "row-fluid">
-                <div class = "col-md-6">
+                <div class = "col-md-6 col-sm-2-col-xs-1">
                   <p>Project ID/PMT: {{pmt.PMT}}</p>
                   <p>Category: {{pmt.Category}}<p>
                 </div>
-                <div class = "col-md-4">
+                <div class = "col-md-4 col-sm-2 col-xs-1">
                   <p>Iteration Points: {{pmt.IterationPts}}</p>
                   <p>Average Time: {{pmt.AvgTime}}<p>
                   
@@ -109,12 +109,14 @@
         <li ng-repeat="pmt in list.list"  class="thumbnail phone-listing" >
               <div class = "row-fluid">
                 {{pmt.pmt}} &nbsp &nbsp &#8212 &nbsp &nbsp   {{pmt.Category}}   &nbsp &nbsp   &#8212   &nbsp &nbsp  Average Time {{pmt.Hours}}
+                <button type="button" class="btn btn-warning pull-right btn-xs" ng-click="list.clearEle()">Remove</button>
               </div>
             </li>
       </div>
       <div class="modal-footer">
       Total Hours = {{list.lol}} &nbsp 
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" ng-click="list.clear()">Clear Projects</button>
       </div>
     </div>
   </div>

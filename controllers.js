@@ -5,7 +5,9 @@
     this.list = addedList;
     this.lol= 0;
     this.addItem = function(pmtnumber, tech, time){
-      this.list.push({pmt: pmtnumber, Category: tech, Hours:time})
+
+    this.list.push({pmt: pmtnumber, Category: tech, Hours:time})
+
     }; 
     this.addHours = function(){
       var sum=0;
@@ -13,6 +15,16 @@
         sum= sum +this.list[i].Hours ;
       } 
       this.lol=sum;
+    }
+    this.clearEle = function(data){
+      var index = list.indexOf({pmt:data.pmt, Category:data.Category, Hours:data.Hours})
+      if (index > -1) {
+          list.splice(index, 1);
+      }
+    }
+    this.clear = function(){
+      this.list=[];
+      this.lol=0;
     }
   });
 
